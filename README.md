@@ -20,6 +20,7 @@ scale with − / +.
 | `export/jobo-knob-dot-digits.step` | Knob + dot + digits 1 and 2 |
 | `export/jobo-knob-dot-scale.step` | Knob + dot + temperature scale |
 | `export/laser/*.dxf`, `*.svg` | Top markings for laser engraving (mm, 1:1, knob centre at origin, layers `ENGRAVE` / `OUTLINE` / `CENTER`) |
+| `docs/ko-fi-description.md` | Shop description for Ko-Fi (plain text, ready to paste) |
 | `tools/fcstd-textconv.py` | Makes `git diff` of `.FCStd` readable |
 
 In the STEP files every modifier is a separate named part, so a slicer
