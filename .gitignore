@@ -1,0 +1,9 @@
+# FreeCAD backups and lock files
+*.FCBak
+*.FCStd1
+*.FCStd.lock
+
+# macOS / Synology
+.DS_Store
+@eaDir/
+*.SynologyWorkingDirectory

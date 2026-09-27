@@ -1,0 +1,4 @@
+# FreeCAD documents are zip archives: never merge them, diff via textconv
+*.FCStd binary diff=fcstd
+*.3mf binary
+*.stl binary
