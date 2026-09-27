@@ -20,9 +20,7 @@ scale with − / +.
 | `export/jobo-knob-dot-digits.step` | Knob + dot + digits 1 and 2 |
 | `export/jobo-knob-dot-scale.step` | Knob + dot + temperature scale |
 | `export/laser/*.dxf`, `*.svg` | Top markings for laser engraving (mm, 1:1, knob centre at origin, layers `ENGRAVE` / `OUTLINE` / `CENTER`) |
-| `docs/ko-fi-description.md` | Shop description for Ko-Fi (plain text, ready to paste) |
-| `docs/instagram-caption.md` | Short Instagram post caption with hashtags |
-| `docs/newsletter-jobo-knobs.md` | Newsletter draft announcing the knobs |
+| `renders/ko-fi/*.jpg` | Product images (2048 × 2048): all designs, top/iso/bottom/side views, exploded and modifier views |
 | `tools/fcstd-textconv.py` | Makes `git diff` of `.FCStd` readable |
 
 In the STEP files every modifier is a separate named part, so a slicer
@@ -71,5 +69,4 @@ expressions and spreadsheet cells. Enable it once after cloning:
     git config diff.fcstd.textconv "python3 tools/fcstd-textconv.py"
     git config diff.fcstd.cachetextconv true
 
-Rendered media (turntable videos, product shots) go to `renders/`, which is
-not tracked.
+Product images in `renders/ko-fi/` are tracked; rendered videos in `renders/` are not.
