@@ -7,3 +7,6 @@
 .DS_Store
 @eaDir/
 *.SynologyWorkingDirectory
+
+# Rendered media (turntable videos etc.)
+renders/
