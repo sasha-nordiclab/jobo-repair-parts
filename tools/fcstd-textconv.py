@@ -59,6 +59,9 @@ def main(path):
                 print(f"   {pname} = {val}")
         for ex in obj.iter("Expression"):
             print(f"   expr {ex.get('path')} = {ex.get('expression')}")
+        for cell in obj.iter("Cell"):
+            alias = f" ({cell.get('alias')})" if cell.get("alias") else ""
+            print(f"   cell {cell.get('address')}{alias} = {cell.get('content')}")
         others = 0
         for c in obj.iter("Constrain"):
             ctype = int(c.get("Type"))
