@@ -12,7 +12,7 @@ scale with − / +.
 ## Files
 
 | Path | Contents |
-|---|---|
+| --- | --- |
 | `JoboKnob.FCStd` | Parametric FreeCAD model (source of everything below) |
 | `export/jobo-knob-blank.step` | Knob only |
 | `export/jobo-knob-assembly.step` | Knob, all modifiers and the reference circlip |
