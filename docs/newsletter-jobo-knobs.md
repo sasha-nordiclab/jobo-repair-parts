@@ -95,7 +95,7 @@ If you print one, I'd love to see it on your machine. Reply to this email or
 tag me.
 
 Keep developing,
-*[your name]*
+*Sasha NordicLab*
 
 ---
 
