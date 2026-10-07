@@ -13,3 +13,6 @@ lancedb/
 # source repos during the merge (removed afterwards)
 /Jobo Knob/
 /Jobo_Drum_Support/
+
+# local bundles for shops
+knob/export/*.zip
