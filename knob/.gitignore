@@ -1,0 +1,18 @@
+# FreeCAD backups and lock files
+*.FCBak
+*.FCStd1
+*.FCStd.lock
+
+# macOS / Synology
+.DS_Store
+@eaDir/
+*.SynologyWorkingDirectory
+
+# Rendered videos (images in renders/ are tracked)
+renders/*.mp4
+renders/*.gif
+
+# Marketing texts (Ko-Fi, Instagram, newsletter) stay local
+docs/ko-fi-description.md
+docs/instagram-caption.md
+docs/newsletter-*.md
