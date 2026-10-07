@@ -1,0 +1,15 @@
+# FreeCAD backups and lock files
+*.FCBak
+*.FCStd1
+*.FCStd.lock
+*_backup_*.FCStd
+
+# macOS / Synology / local tooling
+.DS_Store
+@eaDir/
+*.SynologyWorkingDirectory
+lancedb/
+
+# source repos during the merge (removed afterwards)
+/Jobo Knob/
+/Jobo_Drum_Support/
