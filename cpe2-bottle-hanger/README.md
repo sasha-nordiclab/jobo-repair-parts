@@ -11,7 +11,7 @@ A printed hanger for JOBO bottles in the water bath of a **JOBO CPE2 / CPE2+** p
 - Two **M4 countersunk screws per module** (first and last hole) go through the hanger wall and the 1 mm tank wall into M4 nuts held in one printed **backplate** per module on the outside of the tank.
 - A 1 mm **TPU gasket** with the same outline lies between the tank and the backplate; its holes are smaller than the screw, so it closes around it and keeps the bath water in.
 - **Gussets** between the sections carry the load from the frame into the wall. Neighbouring sections share one gusset.
-- Neighbouring modules lock together with **3 dovetails** in the frame: tenons on the +Y end, sockets on the −Y end. They stay 1 mm under the top face, so nothing shows from above, and they give a glue surface.
+- Neighbouring modules click together with **2 press-fit tabs**: tabs on the +Y end, sockets on the −Y end. They stay 1 mm under the top face, so nothing shows from above.
 
 ## Files
 
@@ -33,7 +33,7 @@ The tree is a short build chain; only the two parts in capitals are printed:
 - `Array` (Draft array, label *Step 2*): `SECTIONS` cells at `PITCH` = 80 mm, fused into one solid. Each cell is `PITCH + G_T` long, so the end gussets of neighbours coincide and become one shared gusset.
 - `Hanger_Final` (**HANGER — standard module**): PartDesign body on top of Step 2. It is identical to Step 2 and exists so the printed part has its own name.
 - `Hanger_Spacer` (**HANGER + SPACER — spacer module**): the module made `SPACER_W` (20 mm) longer on its +Y end. The end section (frame, wall, front rib) is extruded and the end gusset moves to the new end (group *Spacer module build*), so the extension is closed underneath like any other part of the hanger.
-- In both printed modules: the 2 mounting holes with countersinks (`*_Bolt_Holes`, `*_Countersink`), the dovetail tenons (`*_Tenons`, with a `DT_ANG` lead-in) and sockets (`*_Sockets`). Sizes: `DT_*` in `Parameters`.
+- In both printed modules: the 2 mounting holes with countersinks (`*_Bolt_Holes`, `*_Countersink`), the 2 tabs (`*_Tenons`, with a `DT_LEAD` 30° lead-in so they print without overhang) and the 2 sockets (`*_Sockets`). Sizes: `DT_*` in `Parameters`; `DT_CLR` = −0.05 mm per side is the interference.
 - `Module_Backplate` (**BACKPLATE — one per module**): `BP_LEN` × 16.8 × 8 mm (152 mm for 2 bottles), 2 Ø 4.4 holes and 7.3 mm hex pockets at the module ends. Placed in the model where it sits: outside the tank, on the upper flat part of the wall, coaxial with the screws.
 - `Module_Gasket` (**GASKET — one per module**): same outline, `SEAL_T` = 1 mm, holes `SEAL_ID` = 3.8 mm.
 - Group **Standard set**: the spacer module, the gap it bridges, and two standard modules, with their backplates and gaskets as they sit in the tank (links, view only).
@@ -51,7 +51,7 @@ The tank is filled with **2-bottle modules** (each fits the bed easily): two sta
 
 The spacer module fills the 20 mm gap to the next module (picture below: spacer module on the left, then two standard modules). Frame, wall and front rib run on to its new end gusset, so it is closed underneath. In the model it is on the +Y end; `SPACER_W` sets the extra length.
 
-**Joining modules.** Each module has 3 dovetail tenons on its +Y end and 3 sockets on its −Y end. The sockets open downwards into the gusset windows. To join: lift the next module about 8 mm, push its end against the tenons (they pass into its gusset windows), then lower it so the tenons slide up into the sockets. Glue the end faces and the dovetails (CA or epoxy for PETG).
+**Joining modules.** Each module has 2 tabs (6 × 2.5 mm) on its +Y end and 2 sockets on its −Y end. Push the next module end-on against the previous one: the tabs click into the sockets with a light interference fit (0.05 mm per side) and hold the modules aligned. Add glue on the end faces if you want the row to be one piece. If your printer prints tight, set `DT_CLR` to 0.
 
 <p align="center"><img src="docs/img/standard_set.png" width="640" alt="Standard set: spacer module, gap, two standard modules"></p>
 
