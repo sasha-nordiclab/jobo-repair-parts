@@ -94,4 +94,4 @@ The knock uses part of the safety factor of 2 but stays below the material stren
 
 ## History
 
-Release `v1.1.0` built 2-, 3- and 4-section hangers by joining copies of one section with seam patches. This version rebuilds them as one parametric cell plus an array, uses the M4 nut backplate per section, and keeps the geometry of the printed and tested section (hook, tilted wall with the kink, gussets, countersinks).
+Release `v1.1.0` built 2-, 3- and 4-section hangers by joining copies of one section with seam patches. This version rebuilds them as one parametric cell plus an array, uses one M4 nut backplate and a TPU gasket per module, and keeps the geometry of the printed and tested section (hook, tilted wall with the kink, gussets, countersinks).
