@@ -2,11 +2,11 @@
 
 A printed hanger for JOBO bottles in the water bath of a **JOBO CPE2 / CPE2+** processor. A module holds 2 bottles (2–4 if you change one parameter). It mounts on the tilted tank wall with two countersunk M4 screws, one at each end. On the outside of the tank a printed backplate holds the nuts, and a TPU gasket seals the screw holes.
 
-<p align="center"><img src="docs/img/hanger_1.png" width="420" alt="Hanger, 3 sections"> <img src="docs/img/hanger_2.png" width="420" alt="Hanger from below"></p>
+<p align="center"><img src="docs/img/hanger_1.png" width="420" alt="Hanger module, 2 bottles"> <img src="docs/img/hanger_2.png" width="420" alt="Hanger from below"></p>
 
 ## How it works
 
-- Each bottle drops through a 93 × 70 mm window in the frame. A small bump on the bottle side catches under the **front lip**, so an empty bottle cannot float up.
+- Each bottle drops through a 88 × 70 mm window in the frame. A small bump on the bottle side catches under the **front lip**, so an empty bottle cannot float up.
 - The **mount wall** follows the CPE2 tank wall, which kinks 17 mm below the rim: 17° lean above the kink, 7.5° below (relative to the frame).
 - Two **M4 countersunk screws per module** (first and last hole) go through the hanger wall and the 1 mm tank wall into M4 nuts held in one printed **backplate** per module on the outside of the tank.
 - A 1 mm **TPU gasket** with the same outline lies between the tank and the backplate; its holes are smaller than the screw, so it closes around it and keeps the bath water in.
@@ -61,8 +61,8 @@ The spacer module fills the 20 mm gap to the next module (picture below: spacer 
 
 | Part | Qty | Orientation | Time / mass (PETG, A1) |
 |---|---|---|---|
-| Hanger, 2 sections (standard module) | 2 | frame face down, no supports | ≈ 3 h 40 min, 151 g |
-| Spacer module | 1 | frame face down, no supports | ≈ 4 h 27 min, 199 g |
+| Hanger, 2 sections (standard module) | 2 | frame face down, no supports | ≈ 3 h 31 min, 142 g |
+| Spacer module | 1 | frame face down, no supports | ≈ 4 h 20 min, 187 g |
 | Hanger, 3 sections | 1 | frame face down, no supports | ≈ 4 h 59 min, 213 g |
 | Hanger, 4 sections | 1 | 323.6 mm long: does not fit a 256 mm bed | — |
 | Backplate (2-bottle module) | 1 per module | flat face down, pockets up | ≈ 45 min, 24 g |
@@ -88,8 +88,8 @@ CalculiX, second-order tetrahedra, layered PETG (40 / 20 / 15 MPa in-plane / lay
 
 | Case | Load | Load / allowable (≤ 1 passes) |
 |---|---|---|
-| Empty bottles floating (sustained, safety factor 4) | 5.9 N up on the lip of both sections | **0.70** ✅ |
-| Full 0.7 kg bottle knocked onto the front edge at 0.5 m/s, between the sections (safety factor 2) | 126 N (stiffness 90 N/mm) | **4.31** ⚠️ |
+| Empty bottles floating (sustained, safety factor 4) | 5.9 N up on the lip of both sections | **0.78** ✅ |
+| Full 0.7 kg bottle knocked onto the front edge at 0.5 m/s, between the sections (safety factor 2) | 123 N (stiffness 87 N/mm) | **4.49** ⚠️ |
 
 **With only 2 screws a hard knock is a risk.** Between the screws the top of the wall is not held against the tank, so a knock in the middle of the front edge peels the wall from the frame (layer peel at the wall/frame junction, about 2 × the material strength). With a screw at every hole (4 per module) the same knock gave about 1.1. Daily use (bottles in and out, floating) is fine; avoid dropping a full bottle onto the front edge. Forces balance in both cases (residual 0.0 N).
 

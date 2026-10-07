@@ -8,21 +8,21 @@
    0.0,
    11.8
   ],
-  "util": 0.7,
+  "util": 0.78,
   "mode": "layer peel",
   "at": [
-   -61.4,
+   -56.4,
    14.2,
    0.1
   ],
-  "max_disp_mm": 0.135,
+  "max_disp_mm": 0.132,
   "residual_N": [
    0.0,
    0.0,
    -0.0
   ],
   "reaction_on_moved_N": [],
-  "load_disp_mm": 0.1194
+  "load_disp_mm": 0.1155
  },
  "HIT_TOP": {
   "kind": "impact",
@@ -33,22 +33,22 @@
    0.0,
    -100.0
   ],
-  "util": 4.31,
+  "util": 4.49,
   "mode": "layer peel",
   "at": [
-   -54.8,
-   15.2,
+   -49.8,
+   64.8,
    -2.0
   ],
-  "max_disp_mm": 1.156,
+  "max_disp_mm": 1.195,
   "residual_N": [
-   -0.0,
    0.0,
+   -0.0,
    0.0
   ],
   "reaction_on_moved_N": [],
-  "load_disp_mm": 1.1103,
-  "k_N_per_mm": 90.1,
-  "impact_force_N": 125.5
+  "load_disp_mm": 1.1524,
+  "k_N_per_mm": 86.8,
+  "impact_force_N": 123.2
  }
 }
