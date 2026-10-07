@@ -51,7 +51,7 @@ The tank is filled with **2-bottle modules** (each fits the bed easily): two sta
 
 The spacer module fills the 20 mm gap to the next module (picture below: spacer module on the left, then two standard modules). Frame, wall and front rib run on to its new end gusset, so it is closed underneath. In the model it is on the +Y end; `SPACER_W` sets the extra length.
 
-**Joining modules.** Each module has 2 tabs (6 × 1.5 mm, 14 mm tall) on its +Y end and 2 sockets on its −Y end. Push the next module end-on against the previous one: the tabs click into the sockets with a light interference fit (0.05 mm per side) and hold the modules aligned. Add glue on the end faces if you want the row to be one piece. If your printer prints tight, set `DT_CLR` to 0.
+**Joining modules.** Each module has 2 tabs (6 × 1.5 mm, 14 mm tall) on its +Y end and 2 sockets on its −Y end. The spacer module starts the row, so it has tabs only (its sockets are suppressed). Push the next module end-on against the previous one: the tabs click into the sockets with a light interference fit (0.05 mm per side) and hold the modules aligned. Add glue on the end faces if you want the row to be one piece. If your printer prints tight, set `DT_CLR` to 0.
 
 <p align="center"><img src="docs/img/standard_set.png" width="640" alt="Standard set: spacer module, gap, two standard modules"></p>
 
