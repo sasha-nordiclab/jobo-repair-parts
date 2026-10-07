@@ -13,3 +13,6 @@ lancedb/
 
 # local bundles for shops
 knob/export/*.zip
+
+# marketing texts stay local
+drum-support/renders/KoFi_post.md
