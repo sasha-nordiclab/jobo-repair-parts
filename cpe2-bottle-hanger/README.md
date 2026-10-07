@@ -17,6 +17,7 @@ A printed hanger for JOBO bottles in the water bath of a **JOBO CPE2 / CPE2+** p
 |---|---|
 | `cad/JOBO_CPE2_Bottle_Hanger.FCStd` | Parametric FreeCAD model |
 | `step/JOBO_CPE2_Hanger_{2,3,4}_Sections.step` | Hanger for 2, 3 or 4 bottles |
+| `step/JOBO_CPE2_Hanger_2_Sections_Spacer30_Left.step` | 2-bottle hanger with a 30 mm top-plate extension on the left: the third module of the standard set |
 | `step/JOBO_CPE2_Backplate_M4.step` | Backplate with two M4 nut pockets; print one per section |
 | `fem/hanger_fem.py`, `docs/fem_results.json` | Strength check and its results |
 
@@ -24,16 +25,32 @@ A printed hanger for JOBO bottles in the water bath of a **JOBO CPE2 / CPE2+** p
 
 - `Parameters` (spreadsheet): every size, with a comment per row. Derived rows are marked *do not edit*.
 - `Cell` (PartDesign body): **one section** with all its features.
-- `Hanger` (Draft array): `SECTIONS` cells at `PITCH` = 80 mm, fused into one solid. Each cell is `PITCH + G_T` long, so the end gussets of neighbours coincide and become one shared gusset. **This is the part you print.**
+- `Hanger` (Draft array): `SECTIONS` cells at `PITCH` = 80 mm, fused into one solid. Each cell is `PITCH + G_T` long, so the end gussets of neighbours coincide and become one shared gusset.
+- `Hanger_Final` (PartDesign body on top of the array): adds the optional spacer plate `EXT_LEFT` (0 = none). **This is the part you print.**
 - `Backplate` (PartDesign body): 72 × 16.8 × 6 mm, two Ø 4.4 holes and two 7.3 mm hex pockets, 4.2 mm deep.
 
-Change `SECTIONS` (2, 3, 4…) and recompute. Other useful values: `WIN_Y` (window width), `TANK_TILT`, `TANK_TILT2`, `KINK_Z` (tank wall shape), `BOLT_Y`, `NUT_AF`, `NUT_DEPTH`.
+Change `SECTIONS` (2, 3, 4…) or `EXT_LEFT` and recompute. Other useful values: `WIN_Y` (window width), `TANK_TILT`, `TANK_TILT2`, `KINK_Z` (tank wall shape), `BOLT_Y`, `NUT_AF`, `NUT_DEPTH`.
+
+## Standard set
+
+The tank is filled with **2-bottle modules** (each fits the bed easily):
+
+| Position | Part | STEP |
+|---|---|---|
+| 1 | 2-bottle module | `JOBO_CPE2_Hanger_2_Sections.step` |
+| 2 | 2-bottle module | `JOBO_CPE2_Hanger_2_Sections.step` |
+| 3 | 2-bottle module with a **30 mm spacer plate** on the left | `JOBO_CPE2_Hanger_2_Sections_Spacer30_Left.step` |
+
+The spacer is only the top plate (3 mm, `FRAME_T`), no wall or gussets under it. It bridges the 30 mm gap between module 2 and module 3. *Left* = seen from the bottle side, looking at the tank wall (model −Y). For a spacer on the right, mirror the part in the slicer; the hanger is symmetric.
+
+<p align="center"><img src="docs/img/hanger_spacer.png" width="420" alt="2-bottle module with the 30 mm spacer plate"></p>
 
 ## Printing
 
 | Part | Qty | Orientation | Time / mass (PETG, A1) |
 |---|---|---|---|
 | Hanger, 2 sections | 1 | frame face down, no supports | ≈ 3 h 34 min, 151 g |
+| Hanger, 2 sections + 30 mm spacer | 1 | frame face down, no supports | ≈ 3 h 50 min, 165 g |
 | Hanger, 3 sections | 1 | frame face down, no supports | ≈ 4 h 59 min, 213 g |
 | Hanger, 4 sections | 1 | 323.6 mm long: does not fit a 256 mm bed | — |
 | Backplate | 1 per section | flat face down, pockets up | ≈ 21 min, 8.5 g |
