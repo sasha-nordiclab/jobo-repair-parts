@@ -18,7 +18,7 @@ A printed hanger for JOBO bottles in the water bath of a **JOBO CPE2 / CPE2+** p
 |---|---|
 | `cad/JOBO_CPE2_Bottle_Hanger.FCStd` | Parametric FreeCAD model |
 | `step/JOBO_CPE2_Hanger_{2,3,4}_Sections.step` | Hanger for 2, 3 or 4 bottles |
-| `step/JOBO_CPE2_Hanger_2_Sections_Spacer30_Left.step` | 2-bottle hanger with a 30 mm top-plate extension on the left: the third module of the standard set |
+| `step/JOBO_CPE2_Hanger_2_Sections_Spacer30.step` | 2-bottle hanger with a 30 mm top-plate extension on one end: the spacer module of the standard set |
 | `step/JOBO_CPE2_Backplate_M4_2_Sections.step` | Backplate for a 2-bottle module: 4 M4 nut pockets |
 | `step/JOBO_CPE2_Gasket_TPU_2_Sections.step` | TPU gasket under the backplate |
 | `fem/hanger_fem.py`, `docs/fem_results.json` | Strength check and its results |
@@ -31,28 +31,27 @@ The tree is a short build chain; only the two parts in capitals are printed:
 - `Cell` (PartDesign body, label *Step 1*): **one section** with all its features.
 - `Array` (Draft array, label *Step 2*): `SECTIONS` cells at `PITCH` = 80 mm, fused into one solid. Each cell is `PITCH + G_T` long, so the end gussets of neighbours coincide and become one shared gusset.
 - `Hanger_Final` (**HANGER — standard module**): PartDesign body on top of Step 2. It is identical to Step 2 and exists so the printed part has its own name.
-- `Hanger_Spacer` (**HANGER + SPACER — module 3**): Step 2 plus the `SPACER_W` (30 mm) top plate on the left.
+- `Hanger_Spacer` (**HANGER + SPACER — spacer module**): Step 2 plus the `SPACER_W` (30 mm) top plate on its +Y end.
 - `Module_Backplate` (**BACKPLATE — one per module**): `BP_LEN` × 16.8 × 8 mm (152 mm for 2 bottles), 2 × `SECTIONS` Ø 4.4 holes and 7.3 mm hex pockets. Placed in the model where it sits: outside the tank, on the upper flat part of the wall, coaxial with the screws.
 - `Module_Gasket` (**GASKET — one per module**): same outline, `SEAL_T` = 1 mm, holes `SEAL_ID` = 3.8 mm.
-- Group **Standard set**: modules 1, 2, 3 with their backplates and gaskets as they sit in the tank (links, view only).
+- Group **Standard set**: the spacer module, the gap it bridges, and two standard modules, with their backplates and gaskets as they sit in the tank (links, view only).
 
 Change `SECTIONS` (2, 3, 4…), `SPACER_W`, `TANK_T` or `BOLT_LEN` and recompute. Other useful values: `WIN_Y` (window width), `TANK_TILT`, `TANK_TILT2`, `KINK_Z` (tank wall shape), `BOLT_Y`, `NUT_AF`, `NUT_DEPTH`.
 
 ## Standard set
 
-The tank is filled with **2-bottle modules** (each fits the bed easily):
+The tank is filled with **2-bottle modules** (each fits the bed easily): two standard modules and one spacer module.
 
-| Position | Part | STEP |
+| Part | Qty | STEP |
 |---|---|---|
-| 1 | 2-bottle module | `JOBO_CPE2_Hanger_2_Sections.step` |
-| 2 | 2-bottle module | `JOBO_CPE2_Hanger_2_Sections.step` |
-| 3 | 2-bottle module with a **30 mm spacer plate** on the left | `JOBO_CPE2_Hanger_2_Sections_Spacer30_Left.step` |
+| Standard module | 2 | `JOBO_CPE2_Hanger_2_Sections.step` |
+| Spacer module: a standard module with a **30 mm top plate** on one end | 1 | `JOBO_CPE2_Hanger_2_Sections_Spacer30.step` |
 
-<p align="center"><img src="docs/img/standard_set.png" width="640" alt="Standard set: modules 1, 2 and 3 with the spacer"></p>
+The spacer plate continues the top plate past the end of the module and bridges the 30 mm gap to the next module (picture below: spacer module on the left, then two standard modules). It is only the top plate (3 mm, `FRAME_T`), with no wall or gussets under it. In the model it is on the +Y end; `SPACER_W` sets its width.
 
-The spacer is only the top plate (3 mm, `FRAME_T`), no wall or gussets under it. It bridges the 30 mm gap between module 2 and module 3. *Left* = seen from the bottle side, looking at the tank wall (model −Y). For a spacer on the right, mirror the part in the slicer; the hanger is symmetric.
+<p align="center"><img src="docs/img/standard_set.png" width="640" alt="Standard set: spacer module, gap, two standard modules"></p>
 
-<p align="center"><img src="docs/img/hanger_spacer.png" width="420" alt="2-bottle module with the 30 mm spacer plate"></p>
+<p align="center"><img src="docs/img/hanger_spacer.png" width="420" alt="Spacer module"></p>
 
 ## Printing
 
