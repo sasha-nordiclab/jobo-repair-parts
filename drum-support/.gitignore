@@ -1,0 +1,7 @@
+# FreeCAD safety copies (history now lives in git)
+*_backup_*.FCStd
+*.FCBak
+*.FCStd1
+# local tooling / OS
+lancedb/
+.DS_Store
