@@ -16,3 +16,6 @@ knob/export/*.zip
 
 # marketing texts stay local
 drum-support/renders/KoFi_post.md
+
+# local archive of old versions (history is in git)
+archive/
