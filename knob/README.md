@@ -69,3 +69,7 @@ expressions and spreadsheet cells. Enable it once after cloning, from the reposi
     git config diff.fcstd.cachetextconv true
 
 Product images in `renders/ko-fi/` are tracked; rendered videos in `renders/` are not.
+
+## License
+
+[CC BY-NC-SA 4.0](../LICENSE).

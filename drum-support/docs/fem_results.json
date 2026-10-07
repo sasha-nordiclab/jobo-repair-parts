@@ -1,0 +1,274 @@
+{
+ "Lift_1500_A": {
+  "DRUM": {
+   "kind": "creep",
+   "note": "1.0 kg drum on one support",
+   "sf": 4.0,
+   "load_N": [
+    -9.81,
+    0.0,
+    0.0
+   ],
+   "util": 0.16,
+   "mode": "layer peel",
+   "at": [
+    -7.4,
+    22.4,
+    8.1
+   ],
+   "max_disp_mm": 0.017,
+   "residual_N": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "Lift_1500_B": {
+  "DRUM": {
+   "kind": "creep",
+   "note": "1.0 kg drum on one support",
+   "sf": 4.0,
+   "load_N": [
+    -9.81,
+    0.0,
+    0.0
+   ],
+   "util": 0.08,
+   "mode": "layer shear",
+   "at": [
+    14.3,
+    35.6,
+    10.7
+   ],
+   "max_disp_mm": 0.007,
+   "residual_N": [
+    0.0,
+    -0.0,
+    -0.0
+   ]
+  }
+ },
+ "Lift_2500_A": {
+  "DRUM": {
+   "kind": "creep",
+   "note": "2.0 kg drum on one support",
+   "sf": 4.0,
+   "load_N": [
+    -19.62,
+    0.0,
+    0.0
+   ],
+   "util": 0.19,
+   "mode": "layer shear",
+   "at": [
+    -1.2,
+    37.8,
+    -10.7
+   ],
+   "max_disp_mm": 0.037,
+   "residual_N": [
+    0.0,
+    -0.0,
+    0.0
+   ]
+  }
+ },
+ "Lift_2500_B": {
+  "DRUM": {
+   "kind": "creep",
+   "note": "2.0 kg drum on one support",
+   "sf": 4.0,
+   "load_N": [
+    -19.62,
+    0.0,
+    0.0
+   ],
+   "util": 0.17,
+   "mode": "in-plane",
+   "at": [
+    7.4,
+    44.8,
+    15.6
+   ],
+   "max_disp_mm": 0.026,
+   "residual_N": [
+    -0.0,
+    -0.0,
+    -0.0
+   ]
+  }
+ },
+ "Lift_Expert_A": {
+  "DRUM": {
+   "kind": "creep",
+   "note": "3.0 kg drum on one support",
+   "sf": 4.0,
+   "load_N": [
+    -29.43,
+    0.0,
+    0.0
+   ],
+   "util": 1.13,
+   "mode": "layer peel",
+   "at": [
+    -6.4,
+    18.0,
+    2.4
+   ],
+   "max_disp_mm": 0.242,
+   "residual_N": [
+    0.0,
+    -0.0,
+    0.0
+   ]
+  }
+ },
+ "Lift_Expert_B": {
+  "DRUM": {
+   "kind": "creep",
+   "note": "3.0 kg drum on one support",
+   "sf": 4.0,
+   "load_N": [
+    -29.43,
+    0.0,
+    0.0
+   ],
+   "util": 0.48,
+   "mode": "layer shear",
+   "at": [
+    16.1,
+    -59.1,
+    10.7
+   ],
+   "max_disp_mm": 0.1,
+   "residual_N": [
+    -0.0,
+    -0.0,
+    -0.0
+   ]
+  }
+ },
+ "Stand_1500": {
+  "DRUM": {
+   "kind": "creep",
+   "note": "1.0 kg drum on one stand, jaws held on the rib",
+   "sf": 4.0,
+   "load_N": [
+    -9.81,
+    0.0,
+    0.0
+   ],
+   "util": 0.08,
+   "mode": "in-plane",
+   "at": [
+    24.7,
+    5.3,
+    -5.8
+   ],
+   "max_disp_mm": 0.008,
+   "residual_N": [
+    0.0,
+    0.0,
+    -0.0
+   ],
+   "reaction_on_moved_N": []
+  },
+  "CLAMP": {
+   "kind": "creep",
+   "note": "jaws pushed open onto the 10 mm rib (permanent), frictionless",
+   "sf": 4.0,
+   "load_N": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "util": 3.57,
+   "mode": "in-plane",
+   "at": [
+    24.6,
+    -5.2,
+    3.9
+   ],
+   "max_disp_mm": 1.131,
+   "residual_N": [
+    0.0,
+    0.0,
+    -0.0
+   ],
+   "reaction_on_moved_N": [
+    [
+     -0.1,
+     105.1,
+     0.1
+    ],
+    [
+     0.1,
+     -105.1,
+     -0.1
+    ]
+   ]
+  }
+ },
+ "Stand_2840": {
+  "DRUM": {
+   "kind": "creep",
+   "note": "2.0 kg drum on one stand, jaws held on the rib",
+   "sf": 4.0,
+   "load_N": [
+    -19.62,
+    0.0,
+    0.0
+   ],
+   "util": 0.18,
+   "mode": "layer peel",
+   "at": [
+    11.0,
+    -9.6,
+    0.0
+   ],
+   "max_disp_mm": 0.04,
+   "residual_N": [
+    -0.0,
+    0.0,
+    -0.0
+   ],
+   "reaction_on_moved_N": []
+  },
+  "CLAMP": {
+   "kind": "creep",
+   "note": "jaws pushed open onto the 10 mm rib (permanent), frictionless -- NOT VALID: the spread model of this stand is unstable (12.9 mm displacement, reversed reaction); do not use these numbers",
+   "sf": 4.0,
+   "load_N": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "util": 12.73,
+   "mode": "in-plane",
+   "at": [
+    5.8,
+    -7.6,
+    -6.2
+   ],
+   "max_disp_mm": 12.856,
+   "residual_N": [
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   "reaction_on_moved_N": [
+    [
+     -0.7,
+     -1526.0,
+     0.1
+    ],
+    [
+     0.7,
+     1526.0,
+     -0.1
+    ]
+   ]
+  }
+ }
+}

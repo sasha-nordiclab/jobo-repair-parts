@@ -1,0 +1,54 @@
+{
+ "BUOY": {
+  "kind": "creep",
+  "note": "5.9 N up on the front lip of every section",
+  "sf": 4.0,
+  "load_N": [
+   0.0,
+   0.0,
+   17.7
+  ],
+  "util": 0.36,
+  "mode": "layer peel",
+  "at": [
+   -55.9,
+   38.7,
+   -16.2
+  ],
+  "max_disp_mm": 0.104,
+  "residual_N": [
+   0.0,
+   -0.0,
+   -0.0
+  ],
+  "reaction_on_moved_N": [],
+  "load_disp_mm": 0.09
+ },
+ "HIT_TOP": {
+  "kind": "impact",
+  "note": "full 0.7 kg bottle at 0.5 m/s onto the front edge, middle section (solved at 100 N)",
+  "sf": 2.0,
+  "load_N": [
+   0.0,
+   0.0,
+   -100.0
+  ],
+  "util": 1.08,
+  "mode": "in-plane",
+  "at": [
+   59.2,
+   80.0,
+   -11.2
+  ],
+  "max_disp_mm": 0.613,
+  "residual_N": [
+   0.0,
+   0.0,
+   -0.0
+  ],
+  "reaction_on_moved_N": [],
+  "load_disp_mm": 0.5026,
+  "k_N_per_mm": 199.0,
+  "impact_force_N": 186.6
+ }
+}
