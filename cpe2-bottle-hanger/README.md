@@ -24,10 +24,12 @@ A printed hanger for JOBO bottles in the water bath of a **JOBO CPE2 / CPE2+** p
 ## Model
 
 - `Parameters` (spreadsheet): every size, with a comment per row. Derived rows are marked *do not edit*.
-- `Cell` (PartDesign body): **one section** with all its features.
-- `Hanger` (Draft array): `SECTIONS` cells at `PITCH` = 80 mm, fused into one solid. Each cell is `PITCH + G_T` long, so the end gussets of neighbours coincide and become one shared gusset.
-- `Hanger_Final` (PartDesign body on top of the array): adds the optional spacer plate `EXT_LEFT` (0 = none). **This is the part you print.**
-- `Backplate` (PartDesign body): 72 × 16.8 × 6 mm, two Ø 4.4 holes and two 7.3 mm hex pockets, 4.2 mm deep.
+The tree is a short build chain; only the two parts in capitals are printed:
+
+- `Cell` (PartDesign body, label *Step 1*): **one section** with all its features.
+- `Array` (Draft array, label *Step 2*): `SECTIONS` cells at `PITCH` = 80 mm, fused into one solid. Each cell is `PITCH + G_T` long, so the end gussets of neighbours coincide and become one shared gusset.
+- `Hanger_Final` (**HANGER — print this**): PartDesign body on top of Step 2; adds the optional spacer plate `EXT_LEFT` (0 = none). With `EXT_LEFT` = 0 it is identical to Step 2.
+- `Backplate` (**BACKPLATE — print one per cell**): 72 × 16.8 × 6 mm, two Ø 4.4 holes and two 7.3 mm hex pockets, 4.2 mm deep.
 
 Change `SECTIONS` (2, 3, 4…) or `EXT_LEFT` and recompute. Other useful values: `WIN_Y` (window width), `TANK_TILT`, `TANK_TILT2`, `KINK_Z` (tank wall shape), `BOLT_Y`, `NUT_AF`, `NUT_DEPTH`.
 
