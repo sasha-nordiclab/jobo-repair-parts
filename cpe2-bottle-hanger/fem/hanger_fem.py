@@ -1,11 +1,11 @@
-"""Strength check of the CPE2 hanger, 3 sections, default sizes. Run from the repository root:
+"""Strength check of one CPE2 hanger module (2 sections, 2 screws: first and last), default sizes. Run from the repository root:
 
-    python3 cpe2-bottle-hanger/fem/hanger_fem.py Hanger_3.step <work dir>
+    python3 cpe2-bottle-hanger/fem/hanger_fem.py Hanger_2.step <work dir>
 
-Hanger_3.step = the `Array` shape of cad/JOBO_CPE2_Bottle_Hanger.FCStd in model coordinates.
+Hanger_2.step = the `Hanger_Final` shape (placement reset) of cad/JOBO_CPE2_Bottle_Hanger.FCStd in model coordinates.
 The part prints frame face down, so the layers are normal to model Z (flipping does not change σzz).
 
-Supports: the 6 M4 screw seats (bore + countersink) bonded, as a tightened joint.
+Supports: the 2 M4 screw seats (bore + countersink, first and last hole) bonded, as a tightened joint.
 The tank wall pushes on the mount face but cannot pull: each case supports only the wall segment
 that is pressed into the tank (lower segment for a hit from above, upper one for buoyancy).
 """
@@ -19,7 +19,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'tools' / 'fem'))
 import femkit as fk                                                       # noqa: E402
 
 P = dict(D_X0=-61.5, D_XK=-56.3026, D_XB=-49.2592, D_ZK=17.0, WALL_H=70.5, TILT=17.0, TILT2=7.5,
-         BOLT_S=10.3369, BOLT_Y=26.0, PITCH=80.0, SECTIONS=3, D_XF=51.5, LIP_T=2.4, LIP_H=1.0,
+         BOLT_S=10.3369, BOLT_Y=26.0, PITCH=80.0, SECTIONS=2, D_XF=51.5, LIP_T=2.4, LIP_H=1.0,
          FRAME_T=3.0, FRAME_X=123.0, WALL_T=6.0)
 BUOY_N = 5.9                     # empty 600 ml bottle pushing up (per section)
 E_IMPACT = 0.5 * 0.7 * 500 ** 2 / 1000 / 1000 * 1000   # 0.7 kg at 0.5 m/s = 87.5 N*mm
@@ -34,7 +34,7 @@ def main(step, work):
     upper = m.nodes_on(lambda c, n: n @ n_up > 0.99 and abs(c[0] - x_face(c[2])) < 0.3 and c[2] > -P['D_ZK'])
     lower = m.nodes_on(lambda c, n: n @ n_lo > 0.99 and abs(c[0] - x_face(c[2])) < 0.3 and c[2] < -P['D_ZK'])
     o = np.array([P['D_X0'] + P['BOLT_S'] * np.sin(t1), 0, -P['BOLT_S'] * np.cos(t1)])   # bolt row on the face
-    axes = [o + [0, s * P['BOLT_Y'] + k * P['PITCH'], 0] for k in range(P['SECTIONS']) for s in (1, -1)]
+    axes = [o + [0, -P['BOLT_Y'], 0], o + [0, (P['SECTIONS'] - 1) * P['PITCH'] + P['BOLT_Y'], 0]]
     def seat(c, n):
         for a in axes:
             d = c - a; t = -(d @ n_up); r = np.linalg.norm(d + t * n_up)
@@ -43,7 +43,7 @@ def main(step, work):
         return False
     seats = m.nodes_on(seat)
     print('nodes: upper face', len(upper), 'lower face', len(lower), 'screw seats', len(seats))
-    mid = (P['SECTIONS'] - 1) // 2 * P['PITCH']
+    mid = (P['SECTIONS'] - 1) * P['PITCH'] / 2      # between the sections, farthest from both screws
     lips = [m.patch(lambda c, n, y0=k * P['PITCH']: n[2] < -0.9 and abs(c[2] + P['LIP_H']) < 0.25
                     and P['D_XF'] - 0.1 < c[0] < P['D_XF'] + P['LIP_T'] + 0.1 and abs(c[1] - y0) < 30)
             for k in range(P['SECTIONS'])]
