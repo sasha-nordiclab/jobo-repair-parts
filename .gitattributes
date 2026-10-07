@@ -1,0 +1,5 @@
+# FreeCAD documents are zip archives: never merge them, diff via textconv (tools/fcstd-textconv.py)
+*.FCStd binary diff=fcstd
+*.3mf binary
+*.stl binary
+*.step binary

@@ -13,15 +13,14 @@ scale with − / +.
 
 | Path | Contents |
 | --- | --- |
-| `JoboKnob.FCStd` | Parametric FreeCAD model (source of everything below) |
-| `export/jobo-knob-blank.step` | Knob only |
-| `export/jobo-knob-assembly.step` | Knob, all modifiers and the reference circlip |
-| `export/jobo-knob-dot-indicator.step` | Knob + dot + indicator line |
-| `export/jobo-knob-dot-digits.step` | Knob + dot + digits 1 and 2 |
-| `export/jobo-knob-dot-scale.step` | Knob + dot + temperature scale |
-| `export/laser/*.dxf`, `*.svg` | Top markings for laser engraving (mm, 1:1, knob centre at origin, layers `ENGRAVE` / `OUTLINE` / `CENTER`) |
+| `cad/JoboKnob.FCStd` | Parametric FreeCAD model (source of everything below) |
+| `step/jobo-knob-blank.step` | Knob only |
+| `step/jobo-knob-assembly.step` | Knob, all modifiers and the reference circlip |
+| `step/jobo-knob-dot-indicator.step` | Knob + dot + indicator line |
+| `step/jobo-knob-dot-digits.step` | Knob + dot + digits 1 and 2 |
+| `step/jobo-knob-dot-scale.step` | Knob + dot + temperature scale |
+| `laser/*.dxf`, `*.svg` | Top markings for laser engraving (mm, 1:1, knob centre at origin, layers `ENGRAVE` / `OUTLINE` / `CENTER`) |
 | `renders/ko-fi/*.jpg` | Product images (2048 × 2048): all designs, top/iso/bottom/side views, exploded and modifier views |
-| `tools/fcstd-textconv.py` | Makes `git diff` of `.FCStd` readable |
 
 In the STEP files every modifier is a separate named part, so a slicer
 (Bambu Studio, OrcaSlicer) can set it as a modifier with its own filament.
@@ -62,9 +61,9 @@ Change a value in `Params`, recompute, and check that `AllChecksOK` is 1.
 
 ## Readable diffs for .FCStd
 
-`.FCStd` is a zip archive, so `git diff` runs through `tools/fcstd-textconv.py`.
+`.FCStd` is a zip archive, so `git diff` runs through `tools/fcstd-textconv.py` at the root of this repository.
 The script prints object labels, feature parameters, sketch dimensions,
-expressions and spreadsheet cells. Enable it once after cloning:
+expressions and spreadsheet cells. Enable it once after cloning, from the repository root:
 
     git config diff.fcstd.textconv "python3 tools/fcstd-textconv.py"
     git config diff.fcstd.cachetextconv true
