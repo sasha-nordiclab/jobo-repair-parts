@@ -18,7 +18,7 @@ A printed hanger for JOBO bottles in the water bath of a **JOBO CPE2 / CPE2+** p
 |---|---|
 | `cad/JOBO_CPE2_Bottle_Hanger.FCStd` | Parametric FreeCAD model |
 | `step/JOBO_CPE2_Hanger_{2,3,4}_Sections.step` | Hanger for 2, 3 or 4 bottles |
-| `step/JOBO_CPE2_Hanger_2_Sections_Spacer20.step` | 2-bottle hanger with a 30 mm top-plate extension on one end: the spacer module of the standard set |
+| `step/JOBO_CPE2_Hanger_2_Sections_Spacer20.step` | 2-bottle hanger with a 20 mm top-plate extension on one end: the spacer module of the standard set |
 | `step/JOBO_CPE2_Backplate_M4_2_Sections.step` | Backplate for a 2-bottle module: 4 M4 nut pockets |
 | `step/JOBO_CPE2_Gasket_TPU_2_Sections.step` | TPU gasket under the backplate |
 | `fem/hanger_fem.py`, `docs/fem_results.json` | Strength check and its results |
