@@ -18,9 +18,9 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'tools' / 'fem'))
 import femkit as fk                                                       # noqa: E402
 
-P = dict(D_X0=-56.5, D_XK=-51.3026, D_XB=-44.2592, D_ZK=17.0, WALL_H=70.5, TILT=17.0, TILT2=7.5,
-         BOLT_S=10.3369, BOLT_Y=26.0, PITCH=80.0, SECTIONS=2, D_XF=46.5, LIP_T=2.4, LIP_H=1.0,
-         FRAME_T=3.0, FRAME_X=113.0, WALL_T=6.0)
+P = dict(D_X0=-55.0, D_XK=-49.8026, D_XB=-42.7592, D_ZK=17.0, WALL_H=70.5, TILT=17.0, TILT2=7.5,
+         BOLT_S=10.3369, BOLT_Y=26.0, PITCH=80.0, SECTIONS=2, D_XF=45.0, LIP_T=2.4, LIP_H=1.0,
+         FRAME_T=3.0, FRAME_X=110.0, WALL_T=6.0)
 BUOY_N = 5.9                     # empty 600 ml bottle pushing up (per section)
 E_IMPACT = 0.5 * 0.7 * 500 ** 2 / 1000 / 1000 * 1000   # 0.7 kg at 0.5 m/s = 87.5 N*mm
 
