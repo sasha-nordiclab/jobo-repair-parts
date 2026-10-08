@@ -2,6 +2,8 @@
 
 A printed hanger for JOBO bottles in the water bath of a **JOBO CPE2 / CPE2+** processor. A module is 110 mm from the tank wall to the front edge and holds 2 bottles (2–4 if you change one parameter). It mounts on the tilted tank wall with four countersunk M4 screws, two per bottle. On the outside of the tank a printed backplate holds the nuts, and a TPU gasket seals the screw holes.
 
+⬇️ **Download:** [Standard module, 2 bottles](https://github.com/sasha-nordiclab/jobo-repair-parts/raw/main/cpe2-bottle-hanger/step/JOBO_CPE2_Hanger_2_Sections.step) · [Spacer module](https://github.com/sasha-nordiclab/jobo-repair-parts/raw/main/cpe2-bottle-hanger/step/JOBO_CPE2_Hanger_2_Sections_Spacer20.step) · [3 sections](https://github.com/sasha-nordiclab/jobo-repair-parts/raw/main/cpe2-bottle-hanger/step/JOBO_CPE2_Hanger_3_Sections.step) · [4 sections](https://github.com/sasha-nordiclab/jobo-repair-parts/raw/main/cpe2-bottle-hanger/step/JOBO_CPE2_Hanger_4_Sections.step) · [Backplate M4](https://github.com/sasha-nordiclab/jobo-repair-parts/raw/main/cpe2-bottle-hanger/step/JOBO_CPE2_Backplate_M4_2_Sections.step) · [TPU gasket](https://github.com/sasha-nordiclab/jobo-repair-parts/raw/main/cpe2-bottle-hanger/step/JOBO_CPE2_Gasket_TPU_2_Sections.step) · [FreeCAD model](https://github.com/sasha-nordiclab/jobo-repair-parts/raw/main/cpe2-bottle-hanger/cad/JOBO_CPE2_Bottle_Hanger.FCStd)
+
 <p align="center"><img src="docs/img/hanger_1.png" width="420" alt="Hanger module, 2 bottles"> <img src="docs/img/hanger_2.png" width="420" alt="Hanger from below"></p>
 
 ## How it works
