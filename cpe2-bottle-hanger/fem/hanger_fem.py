@@ -1,11 +1,11 @@
-"""Strength check of one CPE2 hanger module (2 sections, 2 screws: first and last), default sizes. Run from the repository root:
+"""Strength check of one CPE2 hanger module (2 sections, 4 screws: two per section), default sizes. Run from the repository root:
 
     python3 cpe2-bottle-hanger/fem/hanger_fem.py Hanger_2.step <work dir>
 
 Hanger_2.step = the `Hanger_Final` shape (placement reset) of cad/JOBO_CPE2_Bottle_Hanger.FCStd in model coordinates.
 The part prints frame face down, so the layers are normal to model Z (flipping does not change σzz).
 
-Supports: the 2 M4 screw seats (bore + countersink, first and last hole) bonded, as a tightened joint.
+Supports: the 4 M4 screw seats (bore + countersink) bonded, as a tightened joint.
 The tank wall pushes on the mount face but cannot pull: each case supports only the wall segment
 that is pressed into the tank (lower segment for a hit from above, upper one for buoyancy).
 """
@@ -34,7 +34,7 @@ def main(step, work):
     upper = m.nodes_on(lambda c, n: n @ n_up > 0.99 and abs(c[0] - x_face(c[2])) < 0.3 and c[2] > -P['D_ZK'])
     lower = m.nodes_on(lambda c, n: n @ n_lo > 0.99 and abs(c[0] - x_face(c[2])) < 0.3 and c[2] < -P['D_ZK'])
     o = np.array([P['D_X0'] + P['BOLT_S'] * np.sin(t1), 0, -P['BOLT_S'] * np.cos(t1)])   # bolt row on the face
-    axes = [o + [0, -P['BOLT_Y'], 0], o + [0, (P['SECTIONS'] - 1) * P['PITCH'] + P['BOLT_Y'], 0]]
+    axes = [o + [0, s * P['BOLT_Y'] + k * P['PITCH'], 0] for k in range(P['SECTIONS']) for s in (1, -1)]
     def seat(c, n):
         for a in axes:
             d = c - a; t = -(d @ n_up); r = np.linalg.norm(d + t * n_up)
