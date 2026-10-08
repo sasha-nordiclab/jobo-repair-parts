@@ -2,6 +2,8 @@
 
 A printed hanger for JOBO bottles in the water bath of a **JOBO CPE2 / CPE2+** processor. One part holds 2, 3 or 4 bottles in a row. It mounts on the tilted tank wall with countersunk M4 screws, and a small printed backplate with nut pockets sits on the other side of the wall.
 
+⬇️ **Download:** [2 sections](https://github.com/sasha-nordiclab/jobo-repair-parts/raw/main/cpe2-bottle-hanger/step/JOBO_CPE2_Hanger_2_Sections.step) · [3 sections](https://github.com/sasha-nordiclab/jobo-repair-parts/raw/main/cpe2-bottle-hanger/step/JOBO_CPE2_Hanger_3_Sections.step) · [4 sections](https://github.com/sasha-nordiclab/jobo-repair-parts/raw/main/cpe2-bottle-hanger/step/JOBO_CPE2_Hanger_4_Sections.step) · [Backplate M4](https://github.com/sasha-nordiclab/jobo-repair-parts/raw/main/cpe2-bottle-hanger/step/JOBO_CPE2_Backplate_M4.step) · [FreeCAD model](https://github.com/sasha-nordiclab/jobo-repair-parts/raw/main/cpe2-bottle-hanger/cad/JOBO_CPE2_Bottle_Hanger.FCStd)
+
 <p align="center"><img src="docs/img/hanger_1.png" width="420" alt="Hanger, 3 sections"> <img src="docs/img/hanger_2.png" width="420" alt="Hanger from below"></p>
 
 ## How it works
