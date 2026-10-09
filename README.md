@@ -22,6 +22,10 @@ The whole repository as a zip: [main.zip](https://github.com/sasha-nordiclab/job
 | **Drum supports** | Roller supports for the far end of the drum: stands that clip onto the bath rib, and supports for the lift rods (1500, 2500 and Expert drums). | [`drum-support/`](drum-support/) |
 | **Control knob** | Replacement knob for the CPE2 / CPE2+, Ø 33 mm, with multicolour marking inserts and laser-engraving files. | [`knob/`](knob/) |
 
+## Shared pump model and accessories
+
+The [ROTEK A01VP repository](https://github.com/sasha-nordiclab/ROTEK-A01VP) holds the parametric reference model of the Rotek circulation pump and compatible accessories, starting with a TPU vibration-damping holder. The same pump is used in the THD CP-Lift project. The [FreeCAD model](https://github.com/sasha-nordiclab/ROTEK-A01VP/blob/main/cad/TPU_Pump_Holder.FCStd) contains both the pump and the holder.
+
 <table align="center">
   <tr><td align="center"><img src="cpe2-bottle-hanger/docs/img/hanger_1.png" width="260" alt="Bottle hanger"><br><b>Bottle hanger</b></td>
       <td align="center"><img src="drum-support/docs/img/Stand_1500.png" width="260" alt="Drum support"><br><b>Drum supports</b></td>
