@@ -27,7 +27,9 @@ The whole repository as a zip: [main.zip](https://github.com/sasha-nordiclab/job
 
 ## Shared pump model and accessories
 
-The [ROTEK A01VP repository](https://github.com/sasha-nordiclab/ROTEK-A01VP) holds the parametric reference model of the Rotek circulation pump and compatible accessories, starting with a TPU vibration-damping holder. The same pump is used in the THD CP-Lift project. The [FreeCAD model](https://github.com/sasha-nordiclab/ROTEK-A01VP/blob/main/cad/TPU_Pump_Holder.FCStd) contains both the pump and the holder.
+The [ROTEK A01VP repository](https://github.com/sasha-nordiclab/ROTEK-A01VP) holds the parametric reference model of the Rotek circulation pump and compatible accessories, starting with an experimental four-post TPU holder that is meant to reduce vibration transfer (not yet print-tested). The same pump is used in the THD CP-Lift project. The [FreeCAD model](https://github.com/sasha-nordiclab/ROTEK-A01VP/blob/main/cad/TPU_Pump_Holder.FCStd) contains both the pump and the holder.
+
+<p align="center"><img src="https://raw.githubusercontent.com/sasha-nordiclab/ROTEK-A01VP/main/docs/img/assembly_1.png" width="400" alt="ROTEK pump on the four-post TPU holder, inlet side"> <img src="https://raw.githubusercontent.com/sasha-nordiclab/ROTEK-A01VP/main/docs/img/assembly_2.png" width="400" alt="ROTEK pump on the four-post TPU holder, motor side"></p>
 
 <table align="center">
   <tr><td align="center"><img src="cpe2-bottle-hanger/docs/img/hanger_1.png" width="260" alt="Bottle hanger"><br><b>Bottle hanger</b></td>
