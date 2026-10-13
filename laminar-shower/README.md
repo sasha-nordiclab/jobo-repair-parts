@@ -7,6 +7,9 @@ A 200 mm printed bar that sits above a JOBO 1500-series drum and pours warm bath
 ## How it works
 Water enters a feed chamber through a barb on one end face. A V-shaped partition with small metering holes (Ø1.4) spreads it evenly along the bar into a calming chamber. From there it leaves through 27 Ø2.4 holes in short nozzle stubs along the bottom ridge. The outlet area is about five times the tube bore, so the water leaves slowly and falls as clean streams. The stubs keep each stream at its own drip point.
 
+## Mounting
+Two flat ears on one side of the top face, with countersunk M4 slots (±10 mm travel) for ISO 10642 / DIN 7991 bolts inserted from below. The bar hangs under a horizontal bracket; bolt spacing 166 ± 20 mm along the bar.
+
 ## Parts
 | Part | Print | Notes |
 |---|---|---|
@@ -16,5 +19,5 @@ Water enters a feed chamber through a barb on one end face. A V-shaped partition
 Material: PETG. Model: [`cad/JOBO_Laminar_Shower.FCStd`](cad/JOBO_Laminar_Shower.FCStd).
 
 ## Open points
-- Mounting above the drum (separate part, not designed yet).
+- The stand that holds the bar above the drum.
 - Outlet hole size to be tuned on the test section with the real pump flow.
