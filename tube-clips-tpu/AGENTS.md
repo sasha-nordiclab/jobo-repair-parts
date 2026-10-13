@@ -1,23 +1,60 @@
-# TPU tube clips for JOBO
+# Two-piece tube clip for JOBO — handoff
 
 ## Purpose
-Two separate flexible, glue-on clips hold silicone tubes with confirmed outer diameters of 9 mm and 12 mm on JOBO interior walls. Each clip is 15 mm long along the tube.
 
-## Design intent
-- Editable native FreeCAD PartDesign bodies with fully constrained sketches and named driving parameters.
-- Flat adhesive pad under each C-shaped snap clip. Mount to a cleaned, dry wall with adhesive suitable for TPU and the JOBO wall material and operating conditions.
-- Initial geometry: 2.4 mm base thickness, 3 mm radial side wall, entry width about 70% of tube outer diameter. These are prototype dimensions; confirm fit with a short test print.
-- The tubes must remain removable without kinking or crushing.
+A rigid PETG holder is glued to the JOBO wall. A removable TPU C-clip holds a silicone tube and slides into the holder. The earlier one-piece glued TPU clips peeled off the wall. FEM showed the cause: spreading the arms for the tube put about 57 N of peel on the glue edges.
 
-## Current state
-Saved FreeCAD document `cad/JOBO_TPU_Tube_Clips.FCStd` has two native PartDesign bodies: `Tube12Body` and `Tube9Body`. **Each Body has one fully constrained profile sketch** (`Profile12`, `Profile9`, DoF 0), one 15 mm Pad, two 0.8 mm PartDesign fillets and two end chamfers. Each profile is a single closed C-shaped outline with a two-arc circular tube seat; geometrical coincident, horizontal, vertical and symmetry constraints establish the relationships, with only named driving dimensions. There are no Block or Fixed constraints. The two new final solids exactly match the previous four-sketch designs (Boolean difference volume zero in both directions for each size). The user confirmed **printing on a C-shaped end face**. Both bodies are placed side by side with that end face at Z=0. The lower FreeCAD chamfer `Angle` is `90 deg - params.print_overhang` (50°) with `Size=0.6 mm`; the upper `Angle` is 40° with `Size=0.6/tan(40°)=0.715 mm`. These produce symmetric 40° slopes from print vertical. Both end-face areas match within each body: 118.92 mm² for Ø12 and 90.17 mm² for Ø9. Both tips are valid single solids, pass `Shape.check(True)` and remain visible in contrasting colours. Both sketches have no conflicting or redundant constraints. Changing `wall` from 3 to 3.6 mm updated both profiles and solids with DoF 0 and valid shapes; 3 mm was restored and saved. The GUI is in axonometric Fit All with the corresponding end faces selected; a rendered preview was inspected.
+## Current model (2026-10-13)
 
-## Driving parameters
-The shared `params` spreadsheet holds `clip_len=15`, `wall=3`, `plate_t=2.4`, `od12=12`, `od9=9`, `mouth_ratio=0.7`, `plate_margin=2.6`, `lip_r=0.8`, `outer_r=0.8`, `print_overhang=40 deg`, and `end_bevel_size=0.6`. Adhesive plate widths are 23.2 mm and 20.2 mm. Current entry widths are 8.4 mm and 6.3 mm.
+File `cad/JOBO_Tube_Clips_Two_Piece.FCStd` is **one parametric pair** driven by `od` (tube OD, default 9). The 12 mm bodies were deleted; set `od=12` for that size. Body object Names keep a `9` suffix (`Tube9Body`, `WallHolder9`, `Profile9`, ...) because FreeCAD Names cannot be renamed. Labels are clean: "TPU clip" and "Wall holder PETG". Both bodies have Placement 0, so the model is assembled. Older files: `cad/JOBO_TPU_Tube_Clips.FCStd` (original one-piece), `*_v1.FCStd` (first rejected two-piece) and `.pre-two-piece` (backup).
+
+### TPU clip (`Tube9Body`): the user likes it, so do not change its look
+
+`Profile9` (DoF 0, 30 constraints) is a C outline. The flange edge (W=od/2+wall+plate_margin, y=0) runs as one slope to the arm face (Wa=od/2+wall, y=`root_slope_height`=plate_margin/tan(dt_angle)). `wall_height` = plate_t+od+wall−root_slope_height. Tree: Pad (clip_len) → Mouth fillet (lip_r) → Arm top fillet (outer_r, top outer corners only) → lower and upper end chamfers on the whole end faces (end_bevel_size, 38° from vertical). It prints on a C end face (model Z → print Z).
+
+### PETG holder (`WallHolder9`): prints standing on the outer face of the end stop (model Z → print Z)
+
+The user selected this print face. The user rejected the earlier constant-3 mm band, whose outer side followed the slope and left a 0.66 mm sliver: it looked like a strange chamfer. The outer side is now plain vertical from the glue face to the top. The thickest section is 5.6 mm, which is still ≤ 2 × 5 perimeters of 0.6, so it prints as perimeters only.
+
+- `CradleProfile9` (DoF 0, 50 constraints): the inner contour is offset from the TPU by `dt_clear=0.3`. It has a floor at y=0, a 25° undercut slope and a vertical wall up to H, with a `lip_r` fillet at the top inner edge. The outer side is x=±(W+dt_clear+holder_wall) from y=−holder_wall to H, with an `outer_r` fillet on the top outer corners. H = max(plate_t+od/2−cradle_drop, root_slope_height+lip_r+0.1).
+- `pad007` "Cradle" runs from z=−(stop_gap+stop_t)+end_bevel_size to clip_len.
+- `CradleStop9` / `pad008` "End stop": the full outer outline minus a U channel for the tube. The channel has a bar `stop_low=1.2` under the tube and side blocks up to H at |x| ≥ od/2+`stop_tube_gap`(0.6). Thickness is stop_t−end_bevel_size.
+- `BedProfile` / `pad` "Bed chamfer": the same U outline, with the outer_r top corners. It is padded Reversed by end_bevel_size with TaperAngle = −print_overhang. This is the elephant-foot chamfer: all bed faces have a 38° overhang, and it does not depend on edge names. Do **not** go back to PartDesign Chamfer with edge links there. The chamfer direction differed per edge, and the links broke on any parameter change.
+
+### Verified (od=9)
+
+- All four sketches have DoF 0. Both bodies are single valid solids.
+- The clip and holder do not intersect. Play: Y 0.6 mm, X 0.3 mm per side. The clip slides along +Z, and the stop engages at 0.3 mm. The tube clears the holder by 0.6 mm.
+- Volumes: TPU 2133.8 mm³, holder 2791.3 mm³. Holder bbox 26.8 × 9.9 × 18.3 mm.
+- Parametric tests passed (all valid, zero intersection): od=10, 12, 16; holder_wall=3.6; dt_clear=0.2. Only od=12 was re-tested after the outer side became vertical.
+- **od=8 segfaults FreeCAD** in recompute. The cause was not investigated.
+- No Orca slice has been done yet for this revision.
+
+## Params (sheet `params`, rows in this order, column C = note)
+
+od=9, clip_len=15, wall=3, plate_t=2.4, plate_margin=2.6, mouth_ratio=0.7, lip_r=0.8, outer_r=0.8, end_bevel_size=0.6, print_overhang=38°, dt_angle=25°, dt_clear=0.3, holder_wall=3, cradle_drop=0, stop_t=3, stop_gap=0.3, stop_low=1.2, stop_tube_gap=0.6.
+
+## FEM summary (plane-strain slice, CalculiX NLGEOM, TPU 95A E=26 MPa, rigid PETG, lips spread to pass the tube, 9 N down)
+
+At dt_clear=0.1:
+
+| Case | Flange lift Ø12 / Ø9 |
+| --- | --- |
+| Free on the wall | 1.36 / 1.03 mm (centre bows up) |
+| Glued | ≈57 / 59 N peel on the glue |
+| Cradle | 0.46 / 0.41 mm centre, 0.27 / 0.13 mm edge |
+| Zero clearance | 0.27 mm centre, 0.20 mm edge |
+| Horizontal T-slot | 0.38 / 0.15 mm |
+| Centre held down | ≤0.10 mm |
+
+The residual bow comes from the arm roots squeezing the flange. Proposed, not built or approved: a central T-rail on the holder floor and a T-groove in the TPU flange, which would probably need plate_t 3.0. The holder now prints upright, so this profile is printable.
+
+## Working rules learned here
+
+- Save after every significant operation (user rule). Delete bodies in a call of their own, then `save(); clearUndos()`, then recompute in the next call. Otherwise FreeCAD segfaults in `enforceRecompute`.
+- Removing a spreadsheet alias rewrites expressions to `params.B<n>`. Map them back to aliases right away.
+- After any change: return to axonometric Fit All with both bodies visible.
 
 ## Resume
-Use the connected `mcp__fdmkit__run` FreeCAD MCP. `cad/rebuild_clips.py` exposes `build_document(output_path)` for a full rebuild inside FreeCAD Python; it creates and saves all constraints, checks both sketches and solids, and saves only after validation. `tree(); P(); chk()` checks only the active Body, so check both Bodies. After changes, update this file and return the FreeCAD view to axonometric Fit All with both final Bodies visible.
 
-## Open questions
-- Exact JOBO wall material/curvature, adhesive choice, and preferred print profile are not yet specified.
-- Silicone tube wall thickness and tolerance are unknown. Nominal clip bores should be checked with the actual tubes.
+Open the file and use `mcp__fdmkit__run`. Run `why('<sketch>')` for DoF. Check both bodies, not only the active one.

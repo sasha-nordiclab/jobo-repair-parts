@@ -1,16 +1,24 @@
-# TPU tube clips for JOBO
+# Tube clips for JOBO: TPU clip + PETG wall holder
 
-[Editable FreeCAD model](cad/JOBO_TPU_Tube_Clips.FCStd) with two separate glue-on snap clips for silicone tubes. The 9 mm and 12 mm sizes refer to the **outside** diameter of the tubes. Each clip supports 15 mm of tube length.
+[Editable FreeCAD model](cad/JOBO_Tube_Clips_Two_Piece.FCStd) of a two-piece clip for a silicone tube. The rigid PETG holder is glued to the JOBO wall. The flexible TPU clip slides into the holder from one end until it reaches the end stop. Then the tube is pushed into the clip.
 
-| Dimension | 9 mm tube | 12 mm tube |
-|---|---:|---:|
-| Nominal tube seat diameter | 9 mm | 12 mm |
-| Snap opening before edge fillets | 6.3 mm | 8.4 mm |
-| Adhesive pad, width × length | 20.2 × 15 mm | 23.2 × 15 mm |
-| Overall height above the wall | 14.4 mm | 17.4 mm |
+The model is driven by one parameter, `od`, the tube's **outside** diameter. The default is 9 mm. For a 12 mm tube, set `od = 12` in `params` and recompute. Tested values are 9, 10, 12 and 16 mm. `od = 8` crashes FreeCAD during recompute, so 9 mm is the lower limit.
 
-Both clips use a 2.4 mm thick adhesive pad, 3 mm side walls, and 0.8 mm fillets at the entry lips and the symmetric outer edges of the walls and pad. The flat face of the pad is for gluing. **Print on one C-shaped end face**, as confirmed by the user; both bodies are oriented with one end at Z=0. Each end has a 0.6 mm edge inset and a 40° slope from the print vertical. FreeCAD represents the two opposite end chamfers with angle properties of 50° and 40° respectively.
+| Dimension (od = 9) | Value |
+| --- | ---: |
+| Clip length along the tube | 15 mm |
+| Holder footprint on the wall | 26.8 × 18.3 mm |
+| Holder height above the wall | 9.9 mm |
+| Clip–holder clearance | 0.3 mm per side |
+| Tube to holder clearance | ≥ 0.6 mm |
 
-The FreeCAD file contains two PartDesign bodies, **one fully constrained profile sketch per body**, and a shared `params` spreadsheet. Each sketch is padded 15 mm; the fillets and end chamfers follow as editable PartDesign features. Change the named dimensions in `params` and recompute. [The rebuild script](cad/rebuild_clips.py) creates the same constrained sketches and verifies the solids before saving.
+## How it holds
 
-Print a short fit test in the intended TPU and print profile before gluing the clips into the JOBO. Check that the real tubing snaps in and out without flattening, and that the selected adhesive bonds to both TPU and the JOBO wall under the bath's operating conditions.
+The TPU flange and the arm roots form one 25° slope (`dt_angle`). The PETG cradle undercuts this slope and hugs the arms up to the tube axis. When the tube spreads the arms, the force goes into the PETG walls instead of peeling anything off the wall. A U-shaped end stop holds the clip without touching the tube.
+
+## Printing
+
+- **TPU clip:** stand it on one C-shaped end face. Both ends have 0.6 mm chamfers at 38° from vertical.
+- **PETG holder:** stand it on the outer face of the end stop, with the tube axis vertical. The base and walls are `holder_wall` = 3.0 mm (5 × 0.6 mm lines). No section is thicker than 2 × 5 perimeters, so it prints as perimeters only. The bed edges have a 0.6 mm chamfer with a 38° overhang. There are no overhangs anywhere else.
+
+Print a fit test before gluing. Tune `dt_clear` if the clip is too loose or too tight in the holder.
